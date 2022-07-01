@@ -1,0 +1,40 @@
+* {
+  color: #000;
+  /* margin: 0; */
+  /* padding: 0; */
+  /* background-color: #f5f5f5; */
+}
+html,
+body {
+  /* margin: 0; */
+  height: 100%;
+}
+.col-12 {
+  padding-bottom: 0 !important;
+}
+.Logo {
+  /* border: 1px solid black; */
+  height: 100%;
+}
+.Logo img {
+  height: 90%;
+  margin-left: 3rem;
+  margin-top: 0.1rem;
+}
+.topbar {
+  /* height: 10vh; */
+  position: sticky;
+  box-shadow: 0px 0px 7px 0px #aaaaaa40;
+}
+.topbar div {
+  height: 10vh;
+}
+.sidebar {
+  height: 90vh;
+  padding: 0 !important;
+}
+.main {
+  background-color: #f5f5f5;
+  height: 90vh;
+  padding: 0 !important;
+}

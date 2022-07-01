@@ -4,20 +4,20 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import "prismjs/themes/prism-coy.css";
 import "./App.scss";
+import "./assets/css/App.css";
+import Admin from "./components/Admin";
+import Web from "./components/Web";
+import { Route } from "react-router-dom";
 
 const App = () => {
+
   return (
-    <div className="grid">
-      <div className="col-12">
-        <div className="card">
-          <div className="grid">
-            <div className="col-2 red">hy</div>
-            <div className="col-9 black">hy</div>
-            <div className="col-1 red">hy</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <Route path="/" exact render={() => <Web />} />
+      <Route path="/admin" exact render={() => <Admin />}>
+      </Route>
+    </>
+
   );
 };
 
