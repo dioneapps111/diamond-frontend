@@ -4,27 +4,40 @@ import { Button } from 'primereact/button';
 
 export default function Sidebar() {
 
-    const items = [
+    const Topitems = [
         {
             label: 'Stock Search',
             icon: 'pi pi-fw pi-chart-line',
         },
         {
+            label: 'Purchase Entry',
+            icon: 'pi pi-fw pi-shopping-cart',
+        },
+        {
             label: 'Sale Entry',
-            icon: 'pi pi-fw pi-file',
+            icon: 'pi pi-fw pi-shopping-cart',
+
         },
         {
-            label: 'File',
+            label: 'Memo Entry',
             icon: 'pi pi-fw pi-file',
 
         },
         {
-            label: 'File',
-            icon: 'pi pi-fw pi-file',
+            label: 'Payment Entry',
+            icon: 'pi pi-fw pi-paypal',
 
         },
         {
-            label: 'Edit',
+            label: 'Expense Entry',
+            icon: 'pi pi-fw pi-wallet',
+
+        }
+    ];
+    const items = [
+
+        {
+            label: 'Advance Entry',
             items: [
                 {
                     label: 'Left',
@@ -45,7 +58,7 @@ export default function Sidebar() {
             ]
         },
         {
-            label: 'Users',
+            label: 'Advance Report',
             items: [
                 {
                     label: 'New',
@@ -55,30 +68,23 @@ export default function Sidebar() {
                     label: 'Delete',
                     icon: 'pi pi-fw pi-user-minus'
                 },
+            ]
+        },
+        {
+            label: 'Transaction',
+            items: [
                 {
-                    label: 'Search',
-                    icon: 'pi pi-fw pi-users',
-                    items: [
-                        {
-                            label: 'Filter',
-                            icon: 'pi pi-fw pi-filter',
-                            items: [
-                                {
-                                    label: 'Print',
-                                    icon: 'pi pi-fw pi-print'
-                                }
-                            ]
-                        },
-                        {
-                            icon: 'pi pi-fw pi-bars',
-                            label: 'List'
-                        }
-                    ]
+                    label: 'Edit',
+                    icon: 'pi pi-fw pi-pencil'
+                },
+                {
+                    label: 'Archieve',
+                    icon: 'pi pi-fw pi-calendar-times'
                 }
             ]
         },
         {
-            label: 'Events',
+            label: 'Master',
             items: [
                 {
                     label: 'Edit',
@@ -108,7 +114,10 @@ export default function Sidebar() {
         }
     ];
     return (
-        <div>
+        <div className='sidebar-menu'>
+            <span className='top-menu'>
+                <PanelMenu model={Topitems} />
+            </span>
             <PanelMenu model={items} />
         </div>
     );

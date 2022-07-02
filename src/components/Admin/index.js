@@ -129,12 +129,11 @@ const Admin = () => {
                     <Topbar />
                 </div>
                 {/* <div className="grid col-12"> */}
-                <div className="col-2">
+                <div className="col-2 over ">
                     <Sidebar />
                     {/* <PanelMenu model={items} /> */}
                 </div>
-                <div className="col-10 main">
-                    <Main />
+                <div className="col-10 main over">
                 </div>
                 {/* </div> */}
             </div>
