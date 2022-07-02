@@ -6,36 +6,25 @@ export default function Sidebar() {
 
     const items = [
         {
+            label: 'Stock Search',
+            icon: 'pi pi-fw pi-chart-line',
+        },
+        {
+            label: 'Sale Entry',
+            icon: 'pi pi-fw pi-file',
+        },
+        {
             label: 'File',
             icon: 'pi pi-fw pi-file',
-            items: [
-                {
-                    label: 'New',
-                    icon: 'pi pi-fw pi-plus',
-                    items: [
-                        {
-                            label: 'Bookmark',
-                            icon: 'pi pi-fw pi-bookmark'
-                        },
-                        {
-                            label: 'Video',
-                            icon: 'pi pi-fw pi-video'
-                        }
-                    ]
-                },
-                {
-                    label: 'Delete',
-                    icon: 'pi pi-fw pi-trash'
-                },
-                {
-                    label: 'Export',
-                    icon: 'pi pi-fw pi-external-link'
-                }
-            ]
+
+        },
+        {
+            label: 'File',
+            icon: 'pi pi-fw pi-file',
+
         },
         {
             label: 'Edit',
-            icon: 'pi pi-fw pi-pencil',
             items: [
                 {
                     label: 'Left',
@@ -57,7 +46,6 @@ export default function Sidebar() {
         },
         {
             label: 'Users',
-            icon: 'pi pi-fw pi-user',
             items: [
                 {
                     label: 'New',
@@ -91,7 +79,6 @@ export default function Sidebar() {
         },
         {
             label: 'Events',
-            icon: 'pi pi-fw pi-calendar',
             items: [
                 {
                     label: 'Edit',
@@ -123,7 +110,6 @@ export default function Sidebar() {
     return (
         <div>
             <PanelMenu model={items} />
-
         </div>
     );
 }
