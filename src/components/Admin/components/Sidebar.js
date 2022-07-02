@@ -19,6 +19,11 @@ export default function Sidebar() {
 
         },
         {
+            label: 'Stock Transfer',
+            icon: 'pi pi-fw pi-refresh',
+
+        },
+        {
             label: 'Memo Entry',
             icon: 'pi pi-fw pi-file',
 
