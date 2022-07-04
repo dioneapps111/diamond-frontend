@@ -68,8 +68,8 @@ body {
 }
 .input-label {
   font-size: 16px;
-  align-items: center;
 }
 .mkg {
-  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
