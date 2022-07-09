@@ -10,11 +10,11 @@ export default function Topbar() {
       <div className='col-9 tabs'>
         <span className="tab-btn">
           <Button label="Submit" aria-label="Submit" />
-          <Button icon="pi pi-times" className="p-button-rounded p-button-danger p-button-text p-button-sm" aria-label="Cancel" />
+          <Button icon="pi pi-times" className="p-button-rounded p-button-text p-button-sm" aria-label="Cancel" />
         </span>
         <span className="tab-btn">
           <Button label="Submit" aria-label="Submit" />
-          <Button icon="pi pi-times" className="p-button-rounded p-button-danger p-button-text p-button-sm" aria-label="Cancel" />
+          <Button icon="pi pi-times" className="p-button-rounded p-button-text p-button-sm" aria-label="Cancel" />
         </span>
       </div>
       <div className='col-1 account'></div>

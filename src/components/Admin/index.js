@@ -16,7 +16,7 @@ const Admin = () => {
                     <Sidebar />
                     {/* <PanelMenu model={items} /> */}
                 </div>
-                <div className="col-10 main p-3 over">
+                <div className="col-10 main over">
                     <Main />
                 </div>
                 {/* </div> */}
