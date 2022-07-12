@@ -8,16 +8,24 @@ const DataTableGridLinesDemo = () => {
       <table className="data-table">
         <thead>
           <tr>
-            <th>CODE</th>
-            <th>STOCK</th>
-            <th>CAP</th>
-            <th>INCH</th>
-            <th>BOX TYPE</th>
+            <th>NO.</th>
+            <th>REF NO</th>
+            <th>LOT NO</th>
+            <th>PCS</th>
+            <th>CARAT</th>
+            <th>RATE</th>
+            <th>AMOUNT</th>
+            <th>L1</th>
+            <th>L2</th>
+            <th>NET AMOUNT</th>
+            <th>KAPAN</th>
+            <th>REMARK</th>
+            <th>ASKING</th>
+            <th>DELETE</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><input type="test" name="" ></input></td>
             <td>50mt</td>
             <td>9mm</td>
             <td>1/2"</td>
