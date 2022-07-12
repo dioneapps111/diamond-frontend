@@ -85,7 +85,7 @@ body {
 .bkg {
   font-size: 14px;
   font-weight: bolder;
-  text-align: end;
+  /* text-align: end; */
   /* width: 4%; */
 }
 .search {
@@ -118,6 +118,9 @@ body {
 }
 .downbr {
   border-radius: 0px 0px 10px 100px;
+}
+.w-100p,#percent {
+  width: 100%;
 }
 /* @media (min-width: 1024px) {
   .search-box {
