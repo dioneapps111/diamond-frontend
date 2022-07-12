@@ -27,8 +27,23 @@ const DataTableGridLinesDemo = () => {
         <tbody>
           <tr>
             <td>50mt</td>
+            <td>50mt</td>
+            <td>9mm</td>
+            <td>9mm</td>
             <td>9mm</td>
             <td>1/2"</td>
+            <td>1/2"</td>
+            <td>Kangal / Coil</td>
+            <td>Kangal / Coil</td>
+            <td>Kangal / Coil</td>
+            <td>Kangal / Coil</td>
+            <td>Kangal / Coil</td>
+            <td>Kangal / Coil</td>
+            <td>Kangal / Coil</td>
+            <td>Kangal / Coil</td>
+            <td>Kangal / Coil</td>
+            <td>Kangal / Coil</td>
+            <td>Kangal / Coil</td>
             <td>Kangal / Coil</td>
           </tr>
         </tbody>

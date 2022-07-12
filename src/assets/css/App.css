@@ -119,7 +119,8 @@ body {
 .downbr {
   border-radius: 0px 0px 10px 100px;
 }
-.w-100p,#percent {
+.w-100p,
+#percent {
   width: 100%;
 }
 /* @media (min-width: 1024px) {

@@ -132,7 +132,10 @@ $gl-lg: "screen and (max-width: 80em)"; // max 1280px
 .p-dropdown .p-dropdown-label {
   padding-top: 4px;
 }
-
+.p-inputtext {
+  font-size: 15px;
+  font-weight: 400;
+}
 .data-table {
   border-spacing: 1 !important;
   border-collapse: collapse;
