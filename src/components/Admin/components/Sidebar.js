@@ -1,6 +1,6 @@
 import React from 'react'
 import { PanelMenu } from 'primereact/panelmenu';
-import { Button } from 'primereact/button';
+// import { Button } from 'primereact/button';
 
 export default function Sidebar() {
 

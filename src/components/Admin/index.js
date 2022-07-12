@@ -2,7 +2,7 @@ import React from "react";
 import Main from "./components/Main/main";
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
-import { PanelMenu } from 'primereact/panelmenu';
+// import { PanelMenu } from 'primereact/panelmenu';
 
 const Admin = () => {
     return (
