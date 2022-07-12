@@ -3,6 +3,7 @@ import { InputText } from "primereact/inputtext";
 // import { Card } from "primereact/card";
 import { InputNumber } from 'primereact/inputnumber';
 import { Divider } from "primereact/divider";
+import { Dropdown } from 'primereact/dropdown';
 import Axios from "axios";
 
 export default function Entrybar() {
@@ -106,7 +107,13 @@ export default function Entrybar() {
     onLoadingClick2();
 
   }, [])
-
+  const citySelectItems = [
+    { label: 'Rome', value: 'RM' },
+    { label: 'London', value: 'LDN' },
+    { label: 'Istanbul', value: 'IST' },
+    { label: 'Paris', value: 'PRS' },
+    { label: 'USD', value: 'USD' },
+  ];
   return (
     <div className="grid col-12 card m-0 p-0 py-2">
       <div className="grid col-6 mr-0 pr-0">
@@ -145,10 +152,12 @@ export default function Entrybar() {
             </label>
           </div>
           <div className="col-8 py-0 my-1">
-            <InputText
+            <Dropdown
               value={currency}
+              options={citySelectItems}
               className="sm-input"
               onChange={(e) => setcurrency(e.target.value)}
+
             />
           </div>
         </div>

@@ -129,6 +129,9 @@ $gl-md: "screen and (max-width: 64em)"; // max 1024px
 $gl-lg: "screen and (max-width: 80em)"; // max 1280px
 
 // table style
+.p-dropdown .p-dropdown-label {
+  padding-top: 4px;
+}
 
 .data-table {
   border-spacing: 1 !important;
@@ -155,10 +158,10 @@ $gl-lg: "screen and (max-width: 80em)"; // max 1280px
     background: #ffed86;
     font-size: 16px;
     background: #e9e9e9;
-    th{
-      border: 1.2px solid #D8D8D8 !important;
+    th {
+      border: 1.2px solid #d8d8d8 !important;
       border-top: none !important;
-      &:last-child  {
+      &:last-child {
         border-right: none !important;
       }
       &:first-child {
@@ -170,9 +173,9 @@ $gl-lg: "screen and (max-width: 80em)"; // max 1280px
   tbody tr {
     height: 48px;
     td {
-      border: 1.2px solid #D8D8D8 !important;
+      border: 1.2px solid #d8d8d8 !important;
       border-top: none !important;
-      &:last-child  {
+      &:last-child {
         border-right: none !important;
       }
       &:first-child {
@@ -194,6 +197,9 @@ $gl-lg: "screen and (max-width: 80em)"; // max 1280px
       text-align: center;
     }
   }
+}
+.pi-chevron-down:before {
+  font-size: 12px;
 }
 
 // @media #{$gl-xs} {
