@@ -22,20 +22,57 @@ export const XlsxBtn = () => {
     }
     const renderFooter = (name) => {
         return (
+            <div className='grid col-12 downbtnlot'>
+                <Button className='btns mr-3' label="RESET" />
+                <Button className='btns mr-3' label="DELETE" />
+                <Button className='btns mr-3' label="SAVE" />
+            </div>
+        );
+    }
+    const renderHeader = (name) => {
+        return (
             <div>
-                <Button label="No" icon="pi pi-times" onClick={() => onHide(name)} className="p-button-text" />
-                <Button label="Yes" icon="pi pi-check" onClick={() => onHide(name)} autoFocus />
+                <Button className='btns mr-3' label="DEMO" onClick={() => onClick('displayResponsive')} />
+                <Button className='btns mr-3' label="IMPORT" onClick={() => onClick('displayResponsive')} />
             </div>
         );
     }
     return (
         <div className='grid col-12 btnparent my-1'>
             <Button className='btns mr-3' label="ADD LOT" onClick={() => onClick('displayResponsive')} />
-            <Dialog header="Header" visible={displayResponsive} onHide={() => onHide('displayResponsive')} breakpoints={{ '960px': '75vw' }} style={{ width: '50vw' }} footer={renderFooter('displayResponsive')}>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <Dialog header={renderHeader('displayResponsive')} visible={displayResponsive} onHide={() => onHide('displayResponsive')} breakpoints={{ '960px': '75vw' }} style={{ width: '73vw' }} footer={renderFooter('displayResponsive')}>
+                <div className="col-12 tbl m-0 p-0 p-fluid">
+                    <table className="data-table">
+                        <thead>
+                            <tr>
+                                <th>NO.</th>
+                                <th>REF NO</th>
+                                <th>LOT NO</th>
+                                <th>PCS</th>
+                                <th>CARAT</th>
+                                <th>RATE</th>
+                                <th>AMOUNT</th>
+                                <th>L1</th>
+                                <th>L2</th>
+                                <th>NET AMOUNT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>50mt</td>
+                                <td>9mm</td>
+                                <td>9mm</td>
+                                <td>1/2"</td>
+                                <td>1/2"</td>
+                                <td>Kangal / Coil</td>
+                                <td>Kangal / Coil</td>
+                                <td>Kangal / Coil</td>
+                                <td>Kangal / Coil</td>
+                                <td>Kangal / Coil</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </Dialog>
             <Button className='btns mr-3' label="DEMO" />
             <Button className='btns mr-3' label="IMPORT" />

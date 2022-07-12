@@ -116,6 +116,11 @@ body {
   justify-content: center;
   height: 75px;
 }
+.downbtnlot {
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
 .downbr {
   border-radius: 0px 0px 10px 100px;
 }
