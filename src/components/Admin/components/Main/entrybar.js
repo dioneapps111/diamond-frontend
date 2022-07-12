@@ -1,12 +1,112 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InputText } from "primereact/inputtext";
 // import { Card } from "primereact/card";
 import { InputNumber } from 'primereact/inputnumber';
 import { Divider } from "primereact/divider";
+import Axios from "axios";
 
 export default function Entrybar() {
-  const [value1, setValue1] = useState("");
-  const [value2, setValue2] = useState("");
+
+  const [data, setdata] = useState(
+    {
+      date: "",
+      inv_type: "",
+      currency: "",
+      rate: "",
+      bill_no: "",
+      inv_no: "",
+      party: "",
+      broker: "",
+      due_days: "",
+      due_date: "",
+      over_due: "",
+      over_due_date: "",
+      type: "",
+      p_r_type: "",
+      adat: "",
+      adat_per: "",
+      adat_amt: "",
+    }
+  );
+  const [date, setdate] = useState(data.date);
+  const [inv_type, setinv_type] = useState(data.inv_type);
+  const [currency, setcurrency] = useState(data.currency);
+  const [rate, setrate] = useState(data.rate);
+  const [bill_no, setbill_no] = useState(data.bill_no);
+  const [inv_no, setinv_no] = useState(data.inv_no);
+  const [party, setparty] = useState(data.party);
+  const [broker, setbroker] = useState(data.broker);
+  const [due_days, setdue_days] = useState(data.due_days);
+  const [due_date, setdue_date] = useState(data.due_date);
+  const [over_due, setover_due] = useState(data.over_due);
+  const [over_due_date, setover_due_date] = useState(data.over_due_date);
+  const [type, settype] = useState(data.type);
+  const [p_r_type, setp_r_type] = useState(data.p_r_type);
+  const [adat, setadat] = useState(data.adat);
+  const [adat_per, setadat_per] = useState(data.adat_per);
+  const [adat_amt, setadat_amt] = useState(data.adat_amt);
+
+  const onLoadingClick2 = () => {
+    Axios({
+
+      // Endpoint to send files
+      method: "get",
+      url: "http://localhost:3004/pur_sale/pur_saleEntry",
+      data: {
+        date,
+        inv_type,
+        currency,
+        rate,
+        bill_no,
+        inv_no,
+        party,
+        broker,
+        due_days,
+        due_date,
+        over_due,
+        over_due_date,
+        type,
+        p_r_type,
+        adat,
+        adat_per,
+        adat_amt,
+      },
+      headers: {
+        // Add any auth token here
+        data_authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRGlvbmUiLCJwYXNzd29yZCI6IkRpb25lJjE2OSIsImlhdCI6MTY1NzUyMTc4NH0.8eV7s5OBV6RXWNeM3EKa5jIHrFu1JuJkw8jklVIOr0A",
+      },
+    })
+      .then((data) => {
+        console.log(data.data.data);
+        setdata(data.data.data)
+        setdate(data.data.data.date)
+        setinv_type(data.data.data.inv_type)
+        setcurrency(data.data.data.currency)
+        setrate(data.data.data.rate)
+        setbill_no(data.data.data.bill_no)
+        setinv_no(data.data.data.inv_no)
+        setparty(data.data.data.party)
+        setbroker(data.data.data.broker)
+        setdue_days(data.data.data.due_days)
+        setdue_date(data.data.data.due_date)
+        setover_due(data.data.data.over_due)
+        setover_due_date(data.data.data.over_due_date)
+        settype(data.data.data.type)
+        setp_r_type(data.data.data.p_r_type)
+        setadat(data.data.data.adat)
+        setadat_per(data.data.data.adat_per)
+        setadat_amt(data.data.data.adat_amt)
+      })
+      .catch((error) => console.log(error));
+
+
+    return false;
+  };
+  useEffect(() => {
+    onLoadingClick2();
+
+  }, [])
+
   return (
     <div className="grid col-12 card m-0 p-0 py-2">
       <div className="grid col-6 mr-0 pr-0">
@@ -18,9 +118,9 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={date}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setdate(e.target.value)}
             />
           </div>
         </div>
@@ -32,9 +132,9 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value2}
+              value={inv_type}
               className="sm-input"
-              onChange={(e) => setValue2(e.target.value2)}
+              onChange={(e) => setinv_type(e.target.value)}
             />
           </div>
         </div>
@@ -46,23 +146,23 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={currency}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setcurrency(e.target.value)}
             />
           </div>
         </div>
         <div className="col-6 mkg py-0 pr-0 p-d-flex">
           <div className="col-4 p-0 bkg">
             <label htmlFor="Curr.date" className="input-label">
-              Curr.date
+              Curr.rate
             </label>
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={rate}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setrate(e.target.value)}
             />
           </div>
         </div>
@@ -74,9 +174,9 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={bill_no}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setbill_no(e.target.value)}
             />
           </div>
         </div>
@@ -88,9 +188,9 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={inv_no}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setinv_no(e.target.value)}
             />
           </div>
         </div>
@@ -102,9 +202,9 @@ export default function Entrybar() {
           </div>
           <div className="col-10 py-0 my-1">
             <InputText
-              value={value1}
+              value={party}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setparty(e.target.value)}
             />
           </div>
         </div>
@@ -116,9 +216,9 @@ export default function Entrybar() {
           </div>
           <div className="col-10 py-0 my-1">
             <InputText
-              value={value1}
+              value={broker}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setbroker(e.target.value)}
             />
           </div>
         </div>
@@ -130,9 +230,9 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={due_days}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setdue_days(e.target.value)}
             />
           </div>
         </div>
@@ -144,9 +244,9 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={due_date}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setdue_date(e.target.value)}
             />
           </div>
         </div>
@@ -158,9 +258,9 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={over_due}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setover_due(e.target.value)}
             />
           </div>
         </div>
@@ -172,9 +272,9 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={over_due_date}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setover_due_date(e.target.value)}
             />
           </div>
         </div>
@@ -188,9 +288,9 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={type}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => settype(e.target.value)}
             />
           </div>
         </div>
@@ -202,9 +302,9 @@ export default function Entrybar() {
           </div>
           <div className="col-9 py-0 my-1">
             <InputText
-              value={value1}
+              value={p_r_type}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setp_r_type(e.target.value)}
             />
           </div>
         </div>
@@ -217,9 +317,9 @@ export default function Entrybar() {
           </div>
           <div className="col-8 py-0 my-1">
             <InputText
-              value={value1}
+              value={adat}
               className="sm-input"
-              onChange={(e) => setValue1(e.target.value)}
+              onChange={(e) => setadat(e.target.value)}
             />
           </div>
         </div>
@@ -236,9 +336,9 @@ export default function Entrybar() {
           <div className="col-8 py-0 ">
             <InputNumber
               inputId="percent"
-              value={value1}
+              value={adat_per}
               className="sm-input"
-              onValueChange={(e) => setValue1(e.value)}
+              onValueChange={(e) => setadat_per(e.value)}
               suffix="%"
             />
             {/* <InputText value={value1} className="sm-input" onChange={(e) => setValue1(e.target.value)} /> */}
@@ -247,9 +347,9 @@ export default function Entrybar() {
         </div>
         <div className="col-6 mkg">
           <InputText
-            value={value1}
+            value={adat_amt}
             className="sm-input"
-            onChange={(e) => setValue1(e.target.value)}
+            onChange={(e) => setadat_amt(e.target.value)}
           />
         </div>
       </div>
@@ -271,9 +371,9 @@ export default function Entrybar() {
             </div>
             <div className="col-7 pl-1 py-0 my-1">
               <InputText
-                value={value1}
+                // value={}
                 className="sm-input"
-                onChange={(e) => setValue1(e.target.value)}
+              // onChange={(e) => setValue1(e.target.value)}
               />
             </div>
           </div>
@@ -285,9 +385,9 @@ export default function Entrybar() {
             </div>
             <div className="col-7 pl-1 py-0 my-1">
               <InputText
-                value={value1}
+                // value={value1}
                 className="sm-input"
-                onChange={(e) => setValue1(e.target.value)}
+              // onChange={(e) => setValue1(e.target.value)}
               />
             </div>
           </div>
