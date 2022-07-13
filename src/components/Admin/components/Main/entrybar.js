@@ -52,7 +52,7 @@ export default function Entrybar() {
 
       // Endpoint to send files
       method: "get",
-      url: "http://localhost:3004/pur_sale/pur_saleEntry",
+      url: "http://13.233.194.118:3004/pur_sale/pur_saleEntry",
       data: {
         date,
         inv_type,
