@@ -5,7 +5,7 @@ import temp from "./temp";
 import { Dropdown } from 'primereact/dropdown';
 
 export const XlsxBtn = () => {
-  const [displayResponsive, setDisplayResponsive] = useState(true);
+  const [displayResponsive, setDisplayResponsive] = useState(false);
   // const [position, setPosition] = useState('center');
   const [selectedCity2, setSelectedCity2] = useState(null);
   const dialogFuncMap = {
