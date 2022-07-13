@@ -1,34 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { InputText } from "primereact/inputtext";
 // import { Card } from "primereact/card";
-import { InputNumber } from 'primereact/inputnumber';
+import { InputNumber } from "primereact/inputnumber";
 import { Divider } from "primereact/divider";
-import { Dropdown } from 'primereact/dropdown';
+import { Dropdown } from "primereact/dropdown";
 import Axios from "axios";
 
 export default function Entrybar() {
-
-  const [data, setdata] = useState(
-    {
-      date: "",
-      inv_type: "",
-      currency: "",
-      rate: "",
-      bill_no: "",
-      inv_no: "",
-      party: "",
-      broker: "",
-      due_days: "",
-      due_date: "",
-      over_due: "",
-      over_due_date: "",
-      type: "",
-      p_r_type: "",
-      adat: "",
-      adat_per: "",
-      adat_amt: "",
-    }
-  );
+  const [data, setdata] = useState({
+    date: "",
+    inv_type: "",
+    currency: "",
+    rate: "",
+    bill_no: "",
+    inv_no: "",
+    party: "",
+    broker: "",
+    due_days: "",
+    due_date: "",
+    over_due: "",
+    over_due_date: "",
+    type: "",
+    p_r_type: "",
+    adat: "",
+    adat_per: "",
+    adat_amt: "",
+  });
   const [date, setdate] = useState(data.date);
   const [inv_type, setinv_type] = useState(data.inv_type);
   const [currency, setcurrency] = useState(data.currency);
@@ -47,9 +44,8 @@ export default function Entrybar() {
   const [adat_per, setadat_per] = useState(data.adat_per);
   const [adat_amt, setadat_amt] = useState(data.adat_amt);
 
-  const onLoadingClick2 = () => {
+  const onLoadingClick2 = useCallback(() => {
     Axios({
-
       // Endpoint to send files
       method: "get",
       url: "http://13.233.194.118:3004/pur_sale/pur_saleEntry",
@@ -74,45 +70,62 @@ export default function Entrybar() {
       },
       headers: {
         // Add any auth token here
-        data_authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRGlvbmUiLCJwYXNzd29yZCI6IkRpb25lJjE2OSIsImlhdCI6MTY1NzUyMTc4NH0.8eV7s5OBV6RXWNeM3EKa5jIHrFu1JuJkw8jklVIOr0A",
+        data_authorization:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRGlvbmUiLCJwYXNzd29yZCI6IkRpb25lJjE2OSIsImlhdCI6MTY1NzUyMTc4NH0.8eV7s5OBV6RXWNeM3EKa5jIHrFu1JuJkw8jklVIOr0A",
       },
     })
       .then((data) => {
         console.log(data.data.data);
-        setdata(data.data.data)
-        setdate(data.data.data.date)
-        setinv_type(data.data.data.inv_type)
-        setcurrency(data.data.data.currency)
-        setrate(data.data.data.rate)
-        setbill_no(data.data.data.bill_no)
-        setinv_no(data.data.data.inv_no)
-        setparty(data.data.data.party)
-        setbroker(data.data.data.broker)
-        setdue_days(data.data.data.due_days)
-        setdue_date(data.data.data.due_date)
-        setover_due(data.data.data.over_due)
-        setover_due_date(data.data.data.over_due_date)
-        settype(data.data.data.type)
-        setp_r_type(data.data.data.p_r_type)
-        setadat(data.data.data.adat)
-        setadat_per(data.data.data.adat_per)
-        setadat_amt(data.data.data.adat_amt)
+        setdata(data.data.data);
+        setdate(data.data.data.date);
+        setinv_type(data.data.data.inv_type);
+        setcurrency(data.data.data.currency);
+        setrate(data.data.data.rate);
+        setbill_no(data.data.data.bill_no);
+        setinv_no(data.data.data.inv_no);
+        setparty(data.data.data.party);
+        setbroker(data.data.data.broker);
+        setdue_days(data.data.data.due_days);
+        setdue_date(data.data.data.due_date);
+        setover_due(data.data.data.over_due);
+        setover_due_date(data.data.data.over_due_date);
+        settype(data.data.data.type);
+        setp_r_type(data.data.data.p_r_type);
+        setadat(data.data.data.adat);
+        setadat_per(data.data.data.adat_per);
+        setadat_amt(data.data.data.adat_amt);
       })
       .catch((error) => console.log(error));
 
-
     return false;
-  };
+  }, [
+    date,
+    inv_type,
+    currency,
+    rate,
+    bill_no,
+    inv_no,
+    party,
+    broker,
+    due_days,
+    due_date,
+    over_due,
+    over_due_date,
+    type,
+    p_r_type,
+    adat,
+    adat_per,
+    adat_amt,
+  ]);
   useEffect(() => {
     onLoadingClick2();
-
-  }, [])
+  }, [onLoadingClick2]);
   const citySelectItems = [
-    { label: 'Rome', value: 'RM' },
-    { label: 'London', value: 'LDN' },
-    { label: 'Istanbul', value: 'IST' },
-    { label: 'Paris', value: 'PRS' },
-    { label: 'USD', value: 'USD' },
+    { label: "Rome", value: "RM" },
+    { label: "London", value: "LDN" },
+    { label: "Istanbul", value: "IST" },
+    { label: "Paris", value: "PRS" },
+    { label: "USD", value: "USD" },
   ];
   return (
     <div className="grid col-12 card m-0 p-0 py-2">
@@ -157,7 +170,6 @@ export default function Entrybar() {
               options={citySelectItems}
               className="sm-input"
               onChange={(e) => setcurrency(e.target.value)}
-
             />
           </div>
         </div>
@@ -382,7 +394,7 @@ export default function Entrybar() {
               <InputText
                 // value={}
                 className="sm-input"
-              // onChange={(e) => setValue1(e.target.value)}
+                // onChange={(e) => setValue1(e.target.value)}
               />
             </div>
           </div>
@@ -396,7 +408,7 @@ export default function Entrybar() {
               <InputText
                 // value={value1}
                 className="sm-input"
-              // onChange={(e) => setValue1(e.target.value)}
+                // onChange={(e) => setValue1(e.target.value)}
               />
             </div>
           </div>
