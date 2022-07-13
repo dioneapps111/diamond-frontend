@@ -47,6 +47,17 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 20px;
 }
+.tbl::-webkit-scrollbar {
+  width: 1px !important;
+  height: 6px !important;
+}
+.tbl::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
+}
+.tbl::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
 .topbar div {
   height: 10vh;
 }
@@ -105,6 +116,7 @@ body {
   width: 125px;
   height: 40px;
   letter-spacing: 10px;
+  
 }
 .tbl {
   font-size: 14px;
