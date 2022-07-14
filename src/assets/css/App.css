@@ -43,7 +43,8 @@ body {
 .over::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
 }
-.kOYplv,.fASA-Dv{
+.kOYplv,
+.fASA-Dv {
   display: none;
 }
 .over::-webkit-scrollbar-thumb {
@@ -121,12 +122,11 @@ body {
   font-weight: 400;
   height: 34px;
   /* letter-spacing: 10px; */
-  
 }
 .p-button-label {
   font-weight: 400;
 }
-.p-inputtext{
+.p-inputtext {
   font-weight: 400;
 }
 .p-button .p-button-label {
@@ -150,6 +150,7 @@ body {
 .downbr {
   border-radius: 0px 0px 10px 100px;
 }
+
 .w-100p,
 #percent {
   width: 100%;

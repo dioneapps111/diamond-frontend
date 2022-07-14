@@ -305,6 +305,21 @@ $gl-lg: "screen and (max-width: 80em)"; // max 1280px
         font-size: 18px;
         color: #505050;
       }
+      .p-autocomplete-dropdown {
+        background: none;
+        color: black;
+      }
+      .p-button:enabled:active {
+        color: none !important;
+        background: none !important;
+      }
+      .p-button:enabled:hover {
+        color: none !important;
+        background: none !important;
+      }
+      .p-inputtext:enabled:focus {
+        box-shadow: none !important;
+      }
     }
 
     td,
