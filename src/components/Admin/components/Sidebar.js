@@ -10,11 +10,11 @@ export default function Sidebar() {
             icon: 'pi pi-fw pi-chart-line',
         },
         {
-            label: 'Purchase Entry',
+            label: 'Purchase',
             icon: 'pi pi-fw pi-shopping-cart',
         },
         {
-            label: 'Sale Entry',
+            label: 'Sale',
             icon: 'pi pi-fw pi-shopping-cart',
 
         },
@@ -24,44 +24,44 @@ export default function Sidebar() {
 
         },
         {
-            label: 'Memo Entry',
+            label: 'Memo',
             icon: 'pi pi-fw pi-file',
 
         },
         {
-            label: 'Payment Entry',
+            label: 'Payment',
             icon: 'pi pi-fw pi-paypal',
 
         },
         {
-            label: 'Expense Entry',
+            label: 'Expense',
             icon: 'pi pi-fw pi-wallet',
 
         }
     ];
     const items = [
 
-        {
-            label: 'Advance Entry',
-            items: [
-                {
-                    label: 'Left',
-                    icon: 'pi pi-fw pi-align-left'
-                },
-                {
-                    label: 'Right',
-                    icon: 'pi pi-fw pi-align-right'
-                },
-                {
-                    label: 'Center',
-                    icon: 'pi pi-fw pi-align-center'
-                },
-                {
-                    label: 'Justify',
-                    icon: 'pi pi-fw pi-align-justify'
-                }
-            ]
-        },
+        // {
+        //     label: 'Advance',
+        //     items: [
+        //         {
+        //             label: 'Left',
+        //             icon: 'pi pi-fw pi-align-left'
+        //         },
+        //         {
+        //             label: 'Right',
+        //             icon: 'pi pi-fw pi-align-right'
+        //         },
+        //         {
+        //             label: 'Center',
+        //             icon: 'pi pi-fw pi-align-center'
+        //         },
+        //         {
+        //             label: 'Justify',
+        //             icon: 'pi pi-fw pi-align-justify'
+        //         }
+        //     ]
+        // },
         {
             label: 'Advance Report',
             items: [

@@ -108,7 +108,7 @@ const DataTableGridLinesDemo = () => {
     setData([...mg]);
   };
   return (
-    <div className="col-12 tbl p-0 py-2 p-fluid">
+    <div className="col-12 tbl p-0 my-3 p-fluid">
       <table className="data-table ">
         <thead>
           <tr>

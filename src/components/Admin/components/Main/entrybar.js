@@ -1,77 +1,113 @@
-import React, {  useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InputText } from "primereact/inputtext";
 // import { Card } from "primereact/card";
 import { InputNumber } from "primereact/inputnumber";
 import { Divider } from "primereact/divider";
 import { Dropdown } from "primereact/dropdown";
-// import Axios from "axios";
+import Axios from "axios";
 
 export default function Entrybar() {
-  const data =
-    {
-      _id: "62cd42d023099471325773ad",
-      inv_type: true,
-      type: "LOCAL",
-      inv_no: "",
-      bill_no: "1",
-      party: "HIMESH",
-      due_days: "30",
-      due_date: "2022-08-04T00:00:00.000Z",
-      over_due: "10",
-      over_due_date: "2022-08-04T00:00:00.000Z",
-      name: "",
-      remark: "",
-      total_carat: "76789",
-      amount: "",
-      tax_per: "",
-      tax_amount: "",
-      curr_amount: "123",
-      final_amount: "",
-      currency: "USD",
-      rate: "",
-      final_amount_local: "",
-      paid_amount: "",
-      paid_amount_local: "",
-      remain_amount: "",
-      remain_amount_local: "",
-      cursor_amount: "",
-      broker: "fancy11",
-      broker_per: "",
-      brok_amount: "",
-      p_r_type: "POLISH",
-      adat: "None",
-      adat_per: "",
-      adat_amt: "1",
-      c_u_id: "",
-      current_date: null,
-      current_time: null,
-      u_u_id: "",
-      u_date: null,
-      u_time: null,
-      status: "",
-      Branch_id: "",
-      master_country_id: "",
-      date: "2022-07-12T09:45:52.093Z",
-      __v: 0,
-    }
-;
-  const [date, setdate] = useState(data.date);
-  const [inv_type, setinv_type] = useState(data.inv_type);
-  const [currency, setcurrency] = useState(data.currency);
-  const [rate, setrate] = useState(data.rate);
-  const [bill_no, setbill_no] = useState(data.bill_no);
-  const [inv_no, setinv_no] = useState(data.inv_no);
-  const [party, setparty] = useState(data.party);
-  const [broker, setbroker] = useState(data.broker);
-  const [due_days, setdue_days] = useState(data.due_days);
-  const [due_date, setdue_date] = useState(data.due_date);
-  const [over_due, setover_due] = useState(data.over_due);
-  const [over_due_date, setover_due_date] = useState(data.over_due_date);
-  const [type, settype] = useState(data.type);
-  const [p_r_type, setp_r_type] = useState(data.p_r_type);
-  const [adat, setadat] = useState(data.adat);
-  const [adat_per, setadat_per] = useState(data.adat_per);
-  const [adat_amt, setadat_amt] = useState(data.adat_amt);
+  // const [data, setdata] = useState([]);
+  // const data = {
+  //   _id: "62cd42d023099471325773ad",
+  //   inv_type: true,
+  //   type: "LOCAL",
+  //   inv_no: "",
+  //   bill_no: "1",
+  //   party: "HIMESH",
+  //   due_days: "30",
+  //   due_date: "2022-08-04T00:00:00.000Z",
+  //   over_due: "10",
+  //   over_due_date: "2022-08-04T00:00:00.000Z",
+  //   name: "",
+  //   remark: "",
+  //   total_carat: "76789",
+  //   amount: "",
+  //   tax_per: "",
+  //   tax_amount: "",
+  //   curr_amount: "123",
+  //   final_amount: "",
+  //   currency: "USD",
+  //   rate: "",
+  //   final_amount_local: "",
+  //   paid_amount: "",
+  //   paid_amount_local: "",
+  //   remain_amount: "",
+  //   remain_amount_local: "",
+  //   cursor_amount: "",
+  //   broker: "fancy11",
+  //   broker_per: "",
+  //   brok_amount: "",
+  //   p_r_type: "POLISH",
+  //   adat: "None",
+  //   adat_per: "",
+  //   adat_amt: "1",
+  //   c_u_id: "",
+  //   current_date: null,
+  //   current_time: null,
+  //   u_u_id: "",
+  //   u_date: null,
+  //   u_time: null,
+  //   status: "",
+  //   Branch_id: "",
+  //   master_country_id: "",
+  //   date: "2022-07-12T09:45:52.093Z",
+  //   __v: 0,
+  // };
+  const onLoadingClick2 = () => {
+    Axios({
+      // Endpoint to send files
+      method: "get",
+      url: "http://localhost:3004/pur_sale/pur_saleEntry",
+      headers: {
+        // Add any auth token here
+        data_authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRGlvbmUiLCJwYXNzd29yZCI6IkRpb25lJjE2OSIsImlhdCI6MTY1NzUyMTc4NH0.8eV7s5OBV6RXWNeM3EKa5jIHrFu1JuJkw8jklVIOr0A",
+      },
+    })
+      .then((data) => {
+        // console.log(data.data.data);
+        // setdata(data.data.data)
+        setdate(data.data.data.date)
+        setinv_type(data.data.data.inv_type)
+        setcurrency(data.data.data.currency)
+        setrate(data.data.data.rate)
+        setbill_no(data.data.data.bill_no)
+        setinv_no(data.data.data.inv_no)
+        setparty(data.data.data.party)
+        setbroker(data.data.data.broker)
+        setdue_days(data.data.data.due_days)
+        setdue_date(data.data.data.due_date)
+        setover_due(data.data.data.over_due)
+        setover_due_date(data.data.data.over_due_date)
+        settype(data.data.data.type)
+        setp_r_type(data.data.data.p_r_type)
+        setadat(data.data.data.adat)
+        setadat_per(data.data.data.adat_per)
+        setadat_amt(data.data.data.adat_amt)
+      })
+      .catch((error) => console.log(error));
+    return false;
+  };
+  useEffect(() => {
+    onLoadingClick2();
+  }, [])
+  const [date, setdate] = useState("");
+  const [inv_type, setinv_type] = useState("");
+  const [currency, setcurrency] = useState("");
+  const [rate, setrate] = useState("");
+  const [bill_no, setbill_no] = useState("");
+  const [inv_no, setinv_no] = useState("");
+  const [party, setparty] = useState("");
+  const [broker, setbroker] = useState("");
+  const [due_days, setdue_days] = useState("");
+  const [due_date, setdue_date] = useState("");
+  const [over_due, setover_due] = useState("");
+  const [over_due_date, setover_due_date] = useState("");
+  const [type, settype] = useState("");
+  const [p_r_type, setp_r_type] = useState("");
+  const [adat, setadat] = useState("");
+  const [adat_per, setadat_per] = useState("");
+  const [adat_amt, setadat_amt] = useState("");
   // const onLoadingClick2 = useCallback(() => {
   //   mg = ;
   //   console.log(data.data.data);
@@ -106,7 +142,7 @@ export default function Entrybar() {
   ];
   return (
     <div className="grid col-12 card m-0 p-0 py-2">
-      <div className="grid col-6 mr-0 pr-0">
+      <div className="grid col-5 mr-0 pr-0">
         <div className="col-6 mkg py-0 pr-0 p-d-flex">
           <div className="col-2 p-0 bkg">
             <label htmlFor="Date" className="input-label">
@@ -202,21 +238,8 @@ export default function Entrybar() {
             <InputText
               value={party}
               className="sm-input"
+              style={{ "width": "94%" }}
               onChange={(e) => setparty(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="col-12 mkg pt-0 pr-0 p-d-flex">
-          <div className="col-2 p-0 bkg">
-            <label htmlFor="Broker" className="input-label">
-              Broker
-            </label>
-          </div>
-          <div className="col-10 py-0 my-1">
-            <InputText
-              value={broker}
-              className="sm-input"
-              onChange={(e) => setbroker(e.target.value)}
             />
           </div>
         </div>
@@ -349,6 +372,21 @@ export default function Entrybar() {
             className="sm-input"
             onChange={(e) => setadat_amt(e.target.value)}
           />
+        </div>
+        <div className="col-12 mkg pt-0 pr-0 p-d-flex">
+          <div className="col-2 p-0 bkg">
+            <label htmlFor="Broker" className="input-label">
+              Broker
+            </label>
+          </div>
+          <div className="col-10 py-0 my-1">
+            <InputText
+              value={broker}
+              className="sm-input"
+              style={{ "width": "94%" }}
+              onChange={(e) => setbroker(e.target.value)}
+            />
+          </div>
         </div>
       </div>
       <div className="grid col-2 algn">

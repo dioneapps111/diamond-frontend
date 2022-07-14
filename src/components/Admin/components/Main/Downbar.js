@@ -29,17 +29,6 @@ export default function Downbar() {
       // Endpoint to send files
       method: "get",
       url: "http://localhost:3004/pur_sale/pur_saleEntry",
-      data: {
-        total_carat,
-        amount,
-        remark,
-        tax_per,
-        tax_amount,
-        curr_amount,
-        broker_per,
-        brok_amount,
-        final_amount,
-      },
       headers: {
         // Add any auth token here
         data_authorization:
@@ -47,7 +36,7 @@ export default function Downbar() {
       },
     })
       .then((data) => {
-        console.log(data.data.data);
+        // console.log(data.data.data);
         setdata(data.data.data);
         setTotal_carat(data.data.data.total_carat);
         setAmount(data.data.data.amount);
@@ -62,17 +51,7 @@ export default function Downbar() {
       .catch((error) => console.log(error));
 
     return false;
-  }, [
-    total_carat,
-    amount,
-    remark,
-    tax_per,
-    tax_amount,
-    curr_amount,
-    broker_per,
-    brok_amount,
-    final_amount,
-  ]);
+  }, []);
   useEffect(() => {
     onLoadingClick2();
   }, [onLoadingClick2]);
