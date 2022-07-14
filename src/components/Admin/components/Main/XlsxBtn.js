@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
-import { Dropdown } from 'primereact/dropdown';
+import { Dropdown } from "primereact/dropdown";
 import Axios from "axios";
-import { AutoComplete } from 'primereact/autocomplete';
+import { AutoComplete } from "primereact/autocomplete";
 
 export const XlsxBtn = () => {
-  let temp =  [{
-    type: "",
-    kapan: "",
-    refno: "",
-    color:"",
-    clarity: "",
-    shape: "",
-    size: "",
-    lotno: "",
-    certno: "",
-    remark: "",
-  }];
+  let temp = [
+    {
+      type: "",
+      kapan: "",
+      refno: "",
+      color: "",
+      clarity: "",
+      shape: "",
+      size: "",
+      lotno: "",
+      certno: "",
+      remark: "",
+    },
+  ];
   const [type, setType] = useState([]);
   const [color, setColor] = useState([]);
   const [clarity, setClarity] = useState([]);
@@ -31,55 +33,55 @@ export const XlsxBtn = () => {
       url: "http://13.233.194.118:3004/types/gettypes",
       headers: {
         // Add any auth token here
-        data_authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRGlvbmUiLCJwYXNzd29yZCI6IkRpb25lJjE2OSIsImlhdCI6MTY1NzUyMTc4NH0.8eV7s5OBV6RXWNeM3EKa5jIHrFu1JuJkw8jklVIOr0A",
+        data_authorization:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRGlvbmUiLCJwYXNzd29yZCI6IkRpb25lJjE2OSIsImlhdCI6MTY1NzUyMTc4NH0.8eV7s5OBV6RXWNeM3EKa5jIHrFu1JuJkw8jklVIOr0A",
       },
     })
       .then((data) => {
         console.log(data.data.Primery_arry);
         let type = data.data.Primery_arry[0].TYPE;
         let empty = [];
-        type.map((e,i) => {
-          empty.push({name: e.name,value:e.name })
+        type.map((e, i) => {
+          empty.push({ name: e.name, value: e.name });
           return false;
-        })
+        });
         setType(empty);
-        empty = []
+        empty = [];
         let color = data.data.Primery_arry[0].COLOR;
-        color.map((e,i) => {
-          empty.push({name: e.name,value:e.name })
+        color.map((e, i) => {
+          empty.push({ name: e.name, value: e.name });
           return false;
-        })
+        });
         setColor(empty);
-        empty = []
+        empty = [];
         let clarity = data.data.Primery_arry[0].CLARITY;
-        clarity.map((e,i) => {
-          empty.push({name: e.name,value:e.name })
+        clarity.map((e, i) => {
+          empty.push({ name: e.name, value: e.name });
           return false;
-        })
+        });
         setClarity(empty);
-        empty = []
+        empty = [];
         let shape = data.data.Primery_arry[0].SHAPE;
-        shape.map((e,i) => {
-          empty.push({name: e.name,value:e.name })
+        shape.map((e, i) => {
+          empty.push({ name: e.name, value: e.name });
           return false;
-        })
+        });
         setShape(empty);
-        empty = []
+        empty = [];
         let size = data.data.Primery_arry[0].SIZE;
-        size.map((e,i) => {
-          empty.push({name: e.name,value:e.name })
+        size.map((e, i) => {
+          empty.push({ name: e.name, value: e.name });
           return false;
-        })
+        });
         setSize(empty);
         // setType()
-
       })
       .catch((error) => console.log(error));
     return false;
   };
   useEffect(() => {
     onLoadingClick2();
-  }, [])
+  }, []);
   const [displayResponsive, setDisplayResponsive] = useState(false);
   // const [position, setPosition] = useState('center');
   const dialogFuncMap = {
@@ -125,36 +127,35 @@ export const XlsxBtn = () => {
   useEffect(() => {
     let cnt = data.length - 1;
     // console.log(cnt);
-      if (
-        data[cnt].type !== "" ||
-        data[cnt].kapan !== "" ||
-        data[cnt].refno !== "" ||
-        data[cnt].color !== "" ||
-        data[cnt].clarity !== "" ||
-        data[cnt].shape !== "" ||
-        data[cnt].size !== "" ||
-        data[cnt].lotno !== "" ||
-        data[cnt].certno !== "" ||
-        data[cnt].remark !== ""
-      ) {
-        let newData = [
-          ...data,
-          {
-            type: "",
-            kapan: "",
-            refno: "",
-            color: "",
-            clarity: "",
-            shape: "",
-            size: "",
-            lotno: "",
-            certno: "",
-            remark: "",
-          },
-        ];
-        setData(newData);
-      }
-    
+    if (
+      data[cnt].type !== "" ||
+      data[cnt].kapan !== "" ||
+      data[cnt].refno !== "" ||
+      data[cnt].color !== "" ||
+      data[cnt].clarity !== "" ||
+      data[cnt].shape !== "" ||
+      data[cnt].size !== "" ||
+      data[cnt].lotno !== "" ||
+      data[cnt].certno !== "" ||
+      data[cnt].remark !== ""
+    ) {
+      let newData = [
+        ...data,
+        {
+          type: "",
+          kapan: "",
+          refno: "",
+          color: "",
+          clarity: "",
+          shape: "",
+          size: "",
+          lotno: "",
+          certno: "",
+          remark: "",
+        },
+      ];
+      setData(newData);
+    }
   }, [data]);
   const setDataOnChange = (feild, index, value) => {
     let mg = data;
@@ -191,86 +192,79 @@ export const XlsxBtn = () => {
     }
     setData([...mg]);
   };
-// const [type, setType] = useState([]);
+  // const [type, setType] = useState([]);
   const [filteredtype, setFilteredtype] = useState(null);
   const searchType = (event) => {
-        let _filteredtype;
-        if (!event.query.trim().length) {
-            _filteredtype = [...type];
-        }
-        else {
-            _filteredtype = type.filter((Type) => {
-                return Type.name.toUpperCase().startsWith(event.query.toUpperCase());
-            });
-        }
-
-        setFilteredtype(_filteredtype);
-  
-}
+    let _filteredtype;
+    if (!event.query.trim().length) {
+      _filteredtype = [...type];
+    } else {
+      _filteredtype = type.filter((Type) => {
+        return Type.name.toUpperCase().startsWith(event.query.toUpperCase());
+      });
+    }
+    
+    setFilteredtype(_filteredtype);
+  };
+  const [filteredColor, setFilteredColor] = useState(null);
   const searchColor = (event) => {
-        let _filteredtype;
-        if (!event.query.trim().length) {
-            _filteredtype = [...color];
-        }
-        else {
-            _filteredtype = type.filter((Type) => {
-                return Type.name.toUpperCase().startsWith(event.query.toUpperCase());
-            });
-        }
-
-        setFilteredtype(_filteredtype);
-  
-}
+    let _filteredtype;
+    if (!event.query.trim().length) {
+      _filteredtype = [...color];
+    } else {
+      _filteredtype = color.filter((Color) => {
+        return Color.name.toUpperCase().startsWith(event.query.toUpperCase());
+      });
+    }
+    
+    setFilteredColor(_filteredtype);
+  };
+  const [filteredClarity, setFilteredClarity] = useState(null);
   const searchClarity = (event) => {
-        let _filteredtype;
-        if (!event.query.trim().length) {
-            _filteredtype = [...clarity];
-        }
-        else {
-            _filteredtype = type.filter((Type) => {
-                return Type.name.toUpperCase().startsWith(event.query.toUpperCase());
-            });
-        }
-
-        setFilteredtype(_filteredtype);
-  
-}
+    let _filteredtype;
+    if (!event.query.trim().length) {
+      _filteredtype = [...clarity];
+    } else {
+      _filteredtype = clarity.filter((Type) => {
+        return Type.name.toUpperCase().startsWith(event.query.toUpperCase());
+      });
+    }
+    
+    setFilteredClarity(_filteredtype);
+  };
+  const [filteredShape, setFilteredShape] = useState(null);
   const searchShape = (event) => {
-        let _filteredtype;
-        if (!event.query.trim().length) {
-            _filteredtype = [...shape];
-        }
-        else {
-            _filteredtype = type.filter((Type) => {
-                return Type.name.toUpperCase().startsWith(event.query.toUpperCase());
-            });
-        }
-
-        setFilteredtype(_filteredtype);
-  
-}
+    let _filteredtype;
+    if (!event.query.trim().length) {
+      _filteredtype = [...shape];
+    } else {
+      _filteredtype = shape.filter((Type) => {
+        return Type.name.toUpperCase().startsWith(event.query.toUpperCase());
+      });
+    }
+    
+    setFilteredShape(_filteredtype);
+  };
+  const [filteredSize, setFilteredSize] = useState(null);
   const searchSize = (event) => {
-        let _filteredtype;
-        if (!event.query.trim().length) {
-            _filteredtype = [...size];
-        }
-        else {
-            _filteredtype = type.filter((Size) => {
-                return Size.name.toUpperCase().startsWith(event.query.toUpperCase());
-            });
-        }
+    let _filteredtype;
+    if (!event.query.trim().length) {
+      _filteredtype = [...size];
+    } else {
+      _filteredtype = size.filter((Size) => {
+        return Size.name.toUpperCase().startsWith(event.query.toUpperCase());
+      });
+    }
 
-        setFilteredtype(_filteredtype);
-  
-}
-const itemTemplate = (item) => {
-  return (
+    setFilteredSize(_filteredtype);
+  };
+  const itemTemplate = (item) => {
+    return (
       <div className="country-item">
-          
-          <div>{item.name}</div>
+        <div>{item.name}</div>
       </div>
-  );
-}
+    );
+  };
   return (
     <div className="grid col-12 btnparent my-1">
       <Button
@@ -307,7 +301,19 @@ const itemTemplate = (item) => {
                 return (
                   <tr key={"lot" + index}>
                     <td>
-                      <AutoComplete value={eliment.type} suggestions={filteredtype} completeMethod={searchType} field="name" dropdown forceSelection itemTemplate={itemTemplate} onChange={(e) => setDataOnChange("type", index, e.target.value)} aria-label="type" />
+                      <AutoComplete
+                        value={eliment.type}
+                        suggestions={filteredtype}
+                        completeMethod={searchType}
+                        field="name"
+                        dropdown
+                        forceSelection
+                        itemTemplate={itemTemplate}
+                        onChange={(e) =>
+                          setDataOnChange("type", index, e.target.value)
+                        }
+                        aria-label="type"
+                      />
                     </td>
 
                     <td>
@@ -332,7 +338,19 @@ const itemTemplate = (item) => {
                       ></input>
                     </td>
                     <td>
-                      <AutoComplete value={eliment.color} suggestions={filteredtype} completeMethod={searchColor} field="name" dropdown forceSelection itemTemplate={itemTemplate} onChange={(e) => setDataOnChange("color", index, e.target.value)} aria-label="type" />
+                      <AutoComplete
+                        value={eliment.color}
+                        suggestions={filteredColor}
+                        completeMethod={searchColor}
+                        field="name"
+                        dropdown
+                        forceSelection
+                        itemTemplate={itemTemplate}
+                        onChange={(e) =>
+                          setDataOnChange("color", index, e.target.value)
+                        }
+                        aria-label="type"
+                      />
                       {/* <input
                         type="text"
                         name="color"
@@ -343,7 +361,19 @@ const itemTemplate = (item) => {
                       ></input> */}
                     </td>
                     <td>
-                      <AutoComplete value={eliment.clarity} suggestions={filteredtype} completeMethod={searchClarity} field="name" dropdown forceSelection itemTemplate={itemTemplate} onChange={(e) => setDataOnChange("clarity", index, e.target.value)} aria-label="type" />
+                      <AutoComplete
+                        value={eliment.clarity}
+                        suggestions={filteredClarity}
+                        completeMethod={searchClarity}
+                        field="name"
+                        dropdown
+                        forceSelection
+                        itemTemplate={itemTemplate}
+                        onChange={(e) =>
+                          setDataOnChange("clarity", index, e.target.value)
+                        }
+                        aria-label="type"
+                      />
                       {/* <input
                         type="text"
                         name="clarity"
@@ -354,7 +384,19 @@ const itemTemplate = (item) => {
                       ></input> */}
                     </td>
                     <td>
-                      <AutoComplete value={eliment.shape} suggestions={filteredtype} completeMethod={searchShape} field="name" dropdown forceSelection itemTemplate={itemTemplate} onChange={(e) => setDataOnChange("shape", index, e.target.value)} aria-label="type" />
+                      <AutoComplete
+                        value={eliment.shape}
+                        suggestions={filteredShape}
+                        completeMethod={searchShape}
+                        field="name"
+                        dropdown
+                        forceSelection
+                        itemTemplate={itemTemplate}
+                        onChange={(e) =>
+                          setDataOnChange("shape", index, e.target.value)
+                        }
+                        aria-label="type"
+                      />
                       {/* <input
                         type="text"
                         name="shape"
@@ -365,7 +407,19 @@ const itemTemplate = (item) => {
                       ></input> */}
                     </td>
                     <td>
-                      <AutoComplete value={eliment.size} suggestions={filteredtype} completeMethod={searchSize} field="name" dropdown forceSelection itemTemplate={itemTemplate} onChange={(e) => setDataOnChange("size", index, e.target.value)} aria-label="type" />
+                      <AutoComplete
+                        value={eliment.size}
+                        suggestions={filteredSize}
+                        completeMethod={searchSize}
+                        field="name"
+                        dropdown
+                        forceSelection
+                        itemTemplate={itemTemplate}
+                        onChange={(e) =>
+                          setDataOnChange("size", index, e.target.value)
+                        }
+                        aria-label="type"
+                      />
                       {/* <input
                         type="text"
                         name="size"
