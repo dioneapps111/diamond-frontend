@@ -301,9 +301,12 @@ $gl-lg: "screen and (max-width: 80em)"; // max 1280px
       input {
         width: 100%;
         height: 46px;
-        font-weight: 400;
+        font-weight: 600;
         font-size: 14px;
-        color: #505050;
+        // color: #505050;
+      }
+      strong {
+        font-weight: 400 !important;
       }
       .p-autocomplete-dropdown {
         background: none;
