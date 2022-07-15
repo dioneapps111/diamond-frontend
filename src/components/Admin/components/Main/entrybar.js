@@ -58,7 +58,7 @@ export default function Entrybar() {
     Axios({
       // Endpoint to send files
       method: "get",
-      url: "http://localhost:3004/pur_sale/pur_saleEntry",
+      url: "http://13.233.194.118:3004/pur_sale/pur_saleEntry",
       headers: {
         // Add any auth token here
         data_authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRGlvbmUiLCJwYXNzd29yZCI6IkRpb25lJjE2OSIsImlhdCI6MTY1NzUyMTc4NH0.8eV7s5OBV6RXWNeM3EKa5jIHrFu1JuJkw8jklVIOr0A",

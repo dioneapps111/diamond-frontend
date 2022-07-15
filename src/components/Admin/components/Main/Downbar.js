@@ -28,7 +28,7 @@ export default function Downbar() {
     Axios({
       // Endpoint to send files
       method: "get",
-      url: "http://localhost:3004/pur_sale/pur_saleEntry",
+      url: "http://13.233.194.118:3004/pur_sale/pur_saleEntry",
       headers: {
         // Add any auth token here
         data_authorization:
